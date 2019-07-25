@@ -9,6 +9,7 @@ class Login extends Controller
     {
         if(request()->ispost()){
             $data = [
+                'code' => input('code'),
                 'username' => input('username'),
                 'password' => input('password'),
             ];
@@ -22,6 +23,10 @@ class Login extends Controller
                     return $this->error('密码错误');
                 case 3:
                     return $this->success('登录成功，正在跳转...','index/index');
+                case 4:
+                    return $this->error('验证码错误');
+                default:
+                    return $this->error('未知错误');
             }
         }
         return $this->fetch();

@@ -14,5 +14,5 @@ return [
         '__PUBLIC__'=>SIDE_URL.'/public/static/admin',
         '__IMG__'=>SIDE_URL.'/public/static/uploads',
         '__ROOT__' => '/',
-    ]
+    ],
 ];

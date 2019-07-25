@@ -1,12 +1,15 @@
 <?php
 namespace app\admin\model;
 use think\Model;
+use think\captcha\Captcha;
 class Login extends Model
 {
   public function Login($data)
   {
+    if(!captcha_check($data['code'])){
+      return 4;
+     };
     $admin = db('admin')->where('username',$data['username'])->find();
-
     if($admin == null){
         return 1;//用户名错误
     }else if(md5($data['password']) != $admin['password']){
