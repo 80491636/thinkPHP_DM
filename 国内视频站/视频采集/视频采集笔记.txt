@@ -1,5 +1,6 @@
-
+﻿
 https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&listpage=1&offset=0&pagesize=30&sort=18     列表地址
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=0&channel=cartoon&iarea=1&listpage=2&offset=0&pagesize=30&sort=18
 pagesize  每页显示数目
 offset	  开始显示位置
 
