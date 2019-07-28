@@ -11,7 +11,7 @@
 
 return [
     'view_replace_str'  =>  [
-        '__PUBLIC__'=>SIDE_URL.'/public/static/index/index',
+        '__PUBLIC__'=>SIDE_URL.'/public/static/index',
         '__ROOT__' => '/',
     ]
 ];

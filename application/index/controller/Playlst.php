@@ -1,10 +1,10 @@
 <?php
 namespace app\index\controller;
 use app\index\controller\Base;
-class Index extends Base
+class Playlst extends Base
 {
     public function index()
     {
-        return  $this->fetch();
+        return  $this->fetch('playlst');
     }
 }

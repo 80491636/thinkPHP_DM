@@ -1,0 +1,43 @@
+
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&listpage=1&offset=0&pagesize=30&sort=18     列表地址
+pagesize  每页显示数目
+offset	  开始显示位置
+
+页面JSON中
+leading_actor_id    主要演员
+second_title  		第二个标题
+publish_date		发行日期
+current_num			当前集数
+type_name			类型名称
+horizontal_pic_url	水平图片网址		1280 x 720 截图 无水印
+cartoon_age			卡通适合年龄
+alias				别名
+second_title		第二个标题
+main_genre			主要类型  		腾讯出品
+area_name			地区
+tag 				标签				"狐妖小红娘", "东方淮竹", "王权霸业", "夏天岛", "光合积木", "白月初"
+doulie_tags			狗牌				2017年所有值得期待的电影
+series_name			系列名称
+vertical_pic_url	垂直图片网址		645 x 907 封面 无水印
+director_id			导演
+description			描述
+dialogue			表达语言			普通话版
+update_notify_desc	更新时间			每周六10:00更新1集
+episode_updated		最新更新集		更新至62集
+score				评分				"score": {"c_mix_score": "8.5","hot": "6.47114","score": "8.5"},
+nomal_ids			所有集id			其中F的值 为0：隐藏 2：正常 4：预告 7：最新
+
+
+itype	  电影类型 如：剧情、喜剧、动作等
+100018 剧情 100004 喜剧 100061 动作 100005 爱情 100010 惊悚 4 犯罪 100009 悬疑 100006 战争 100012 科幻 100015 动画
+100007 恐怖 100017 家庭 100022 传记 100003 冒险 100016 奇幻 100011 武侠 100021 历史 2 运动 100014 歌舞 100013 音乐
+100020 记录 1 儿童 100019 伦理 3 西部
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=movie&listpage=2&offset=24&pagesize=24&sort=18
+
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=movie&listpage=2&offset=48&pagesize=24&sort=18
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=0&channel=movie&listpage=2&offset=0&pagesize=24&sort=18
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=movie&itype=100018&listpage=2&offset=168&pagesize=24&sort=18
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=movie&itype=100018&listpage=2&offset=1128&pagesize=24&sort=18
+
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&listpage=1&offset=30&pagesize=30&sort=18
+https://v.qq.com/x/bu/pagesheet/list?_all=1&append=0&channel=cartoon&itype=5&listpage=2&offset=0&pagesize=30&sort=18

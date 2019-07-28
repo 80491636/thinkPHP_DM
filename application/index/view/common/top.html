@@ -1,0 +1,42 @@
+<div class="eb-head" data-block="tj-head" monitor-desc="head" monitor-shortpv="">
+    <div class="eb-head-top eb-head-width g-clear">
+        <a href="https://www.360kan.com" class="eb-head-logo" target="_self">
+            <img src="https://p2.ssl.qhimg.com/t01db9f7ee470e741ac.png" /></a>
+        <div class="eb-head-ad-wrap">
+            <a href="https://v.360kan.com/sv/c4PkOmLoThnyTy.html" class="eb-head-ad" style="background-image:url(https://p.ssl.qhimg.com/t0182e4824401e5013d.png)"></a>
+        </div>
+        <div class="eb-head-s">
+            <form class="js-eb-search eb-search eb-search-xklong" target="_top" method="GET" action="" id="search-form">
+                <div class="js-eb-suggest eb-suggest  eb-suggest-xklong g-clear" id="js-eb-suggest">
+                    <input class="eb-suggest-query js-query" autocomplete="off" value="" id="kw" />
+                    <div class="eb-suggest-wrap js-wrap" style="display:none">
+                        <iframe frameborder="0"></iframe>
+                        <ul class="js-list eb-suggest-ul"></ul>
+                    </div>
+                </div>
+                <div class="eb-search-btn-wrap">
+                    <input type="submit" value="" class="eb-search-btn" id="js-eb-search-btn" />
+                    <label for="js-eb-search-btn">搜索</label></div>
+            </form>
+        </div>
+    </div>
+    <div class="eb-head-bottom">
+        <div class="wrap eb-head-width g-clear">
+            <ul id="js-ebhead-more" class="eb-head-nav g-clear">
+                <li class="eb-head-nav-wrap js-ebsubhead-menu">
+                    <a href="{:url('index/index')}" class="nav-item current" target="_self">首页</a></li>
+                {volist name="menu" id="vo"}
+                <li class="eb-head-nav-wrap js-ebsubhead-menu">
+                    <a href="{:url('videolst/index',array('id'=>$vo.id))}" 
+                        {if condition="$cateid eq $vo.id"}
+                        class="nav-item current" 
+                        {else /}
+                        class="nav-item" 
+                        {/if}
+                        target="_self">{$vo.catename}</a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+    </div>
+</div>
