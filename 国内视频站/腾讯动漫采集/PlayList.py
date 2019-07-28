@@ -8,6 +8,7 @@ import sys
 import time
 import pymysql
 import demjson
+import random
 
 from bs4 import BeautifulSoup
 
@@ -22,7 +23,21 @@ connect = pymysql.Connect(
 )
 # 获取游标
 cursor = connect.cursor()
+
 class PlayList:
+
+    user_agent_list = ['Mozilla/5.0 (Windows NT 6.2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1464.0 Safari/537.36',
+                       'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.16 Safari/537.36',
+                       'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36',
+                       'Mozilla/5.0 (X11; CrOS i686 3912.101.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36',
+                       'Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36',
+                       'Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36',
+                       'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:17.0) Gecko/20100101 Firefox/17.0.6',
+                       'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1468.0 Safari/537.36',
+                       'Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2224.3 Safari/537.36',
+                       'Mozilla/5.0 (X11; CrOS i686 3912.101.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.116 Safari/537.36']
+    UserAgent=random.choice(user_agent_list)
+
     header = {
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -30,14 +45,15 @@ class PlayList:
         'Cache-Control': 'max-age=0',
         'Connection': 'keep-alive',
         'Upgrade-Insecure-Requests': '1',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36',
+        'User-Agent': UserAgent,
     }
 
     def __init__(self):
         #   查询数据库
-        sql = "SELECT * FROM videoCate "
+        sql = "SELECT * FROM tp_vcate "
         cursor.execute(sql)
         for row in cursor.fetchall():
+            vcate_id = row[0]
             url = row[6]
             #   打开页面
             try:
@@ -47,51 +63,72 @@ class PlayList:
                 f.write('打开连接失败：' + url + '\n')
                 f.close()
                 print('打开播放页失败:',e)
+            if r.status_code != 200:
+                f=open('链接打开错误.txt','a')
+                f.write('返回错误代码：' + url + str(r.status_code) + '\n')
+                f.close()
+                print('页面打开错误',str(r.status_code),url)
+                continue
             #print("链接状态：",r.status_code)
             r.encoding = 'utf-8'
-            # print(r.text)
             #   正则JSON内容
             cover = ''
             searchObj = re.search( 'var COVER_INFO =(.*)',r.text, re.M|re.I)
             if searchObj:
                 cover = searchObj.group(1)
             else:
+                f=open('链接打开错误.txt','a')
+                f.write('没有找到JSON：' + url + '\n')
+                f.close()
                 print ("没有找到 cover  JSON")
-            data = demjson.decode(cover)
-            print(data['id'],data['leading_actor_id'],data['second_title']
-                data['publish_date'],
-                data['current_num'],
-                data['type_name'],
-                data['horizontal_pic_url'],
-                data['cartoon_age'],
-                data['area_name'],
-                data['tag'],
-                data['doulie_tags'],
-                data['series_name'],
-                data['vertical_pic_url'],
-                data['director_id'],
-                data['description'],
-                data['dialogue'],
-                data['update_notify_desc'],
-                data['episode_updated'],
-                data['score'],
-                data['nomal_ids'],
+                continue
+            cover_info = demjson.decode(cover)
+
+            # print( demjson.encode(cover_info['leading_actor_id']))
+            # return
+
+            source = "v.qq.com"
+            sql = "INSERT INTO tp_pcate(source, vcate_id, pageid, leading_actor_id, second_title, publish_date, current_num, type_name, horizontal_pic_url, cartoon_age, area_name, tag,\
+                doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids) VALUES\
+                    ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+            data = (
+                source,
+                vcate_id,
+                cover_info['id'],
+                self.setEscape(cover_info['leading_actor_id']),
+                cover_info['second_title'],
+                cover_info['publish_date'],
+                cover_info['current_num'],
+                self.setEscape(cover_info['type_name']),
+                cover_info['horizontal_pic_url'],
+                cover_info['cartoon_age'],
+                cover_info['area_name'],
+                self.setEscape(cover_info['tag']),
+                cover_info['doulie_tags'],
+                cover_info['series_name'],
+                cover_info['vertical_pic_url'],
+                self.setEscape(cover_info['director_id']),
+                cover_info['description'],
+                cover_info['dialogue'],
+                cover_info['update_notify_desc'],
+                cover_info['episode_updated'],
+                self.setEscape(cover_info['score']),
+                self.setEscape(cover_info['nomal_ids']),
             )
-            return
-            print(pymysql.escape_string(title)) 
-            sql = "INSERT INTO video(laiyuan,fenlei_ID,leixing_ID,title,figure_pic,sub_url,cover,video) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s') \
-                ON DUPLICATE KEY UPDATE cover = '%s',video = '%s'"
-            data = (laiyuan,channel,itype,pymysql.escape_string(title),figure_pic,href,cover,video,cover,video)
             try:
                 cursor.execute(sql % data)
             except Exception as e:
+                print(e)
                 f=open('1.txt','a')
-                f.write(pymysql.escape_string(title))
+                f.write(pymysql.escape_string(cover_info['series_name'])+"\n")
                 f.close()
+                print(data)
                 continue
             else:
                 connect.commit()
-                       
+    def setEscape(self,data):
+        return pymysql.escape_string(demjson.encode(data))
+
 if __name__ == "__main__":
 
     playlist = PlayList()

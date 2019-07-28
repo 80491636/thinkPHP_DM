@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:84:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\playlst\playlst.html";i:1564313543;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564283243;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1564283243;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0045)https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html -->
 <html class="" lang="zh-cn">
@@ -7,9 +8,51 @@
     <title>斗罗大陆-更新更全更受欢迎的影视网站-在线观看</title>
     <meta name="referrer" content="always">
     <!--<base target="_blank">-->
-    <link href="__PUBLIC__/styles/top.css" type="text/css" rel="stylesheet" />
-    <link href="__PUBLIC__/styles/playlst.css" type="text/css" rel="stylesheet" /><body class="g-wide">
-    {include file="common/top"}
+    <link href="http://127.0.0.1/dm/public/static/index/styles/top.css" type="text/css" rel="stylesheet" />
+    <link href="http://127.0.0.1/dm/public/static/index/styles/playlst.css" type="text/css" rel="stylesheet" /><body class="g-wide">
+    <div class="eb-head" data-block="tj-head" monitor-desc="head" monitor-shortpv="">
+    <div class="eb-head-top eb-head-width g-clear">
+        <a href="https://www.360kan.com" class="eb-head-logo" target="_self">
+            <img src="https://p2.ssl.qhimg.com/t01db9f7ee470e741ac.png" /></a>
+        <div class="eb-head-ad-wrap">
+            <a href="https://v.360kan.com/sv/c4PkOmLoThnyTy.html" class="eb-head-ad" style="background-image:url(https://p.ssl.qhimg.com/t0182e4824401e5013d.png)"></a>
+        </div>
+        <div class="eb-head-s">
+            <form class="js-eb-search eb-search eb-search-xklong" target="_top" method="GET" action="" id="search-form">
+                <div class="js-eb-suggest eb-suggest  eb-suggest-xklong g-clear" id="js-eb-suggest">
+                    <input class="eb-suggest-query js-query" autocomplete="off" value="" id="kw" />
+                    <div class="eb-suggest-wrap js-wrap" style="display:none">
+                        <iframe frameborder="0"></iframe>
+                        <ul class="js-list eb-suggest-ul"></ul>
+                    </div>
+                </div>
+                <div class="eb-search-btn-wrap">
+                    <input type="submit" value="" class="eb-search-btn" id="js-eb-search-btn" />
+                    <label for="js-eb-search-btn">搜索</label></div>
+            </form>
+        </div>
+    </div>
+    <div class="eb-head-bottom">
+        <div class="wrap eb-head-width g-clear">
+            <ul id="js-ebhead-more" class="eb-head-nav g-clear">
+                <li class="eb-head-nav-wrap js-ebsubhead-menu">
+                    <a href="<?php echo url('index/index'); ?>" class="nav-item current" target="_self">首页</a></li>
+                <?php if(is_array($menu) || $menu instanceof \think\Collection || $menu instanceof \think\Paginator): $i = 0; $__LIST__ = $menu;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                <li class="eb-head-nav-wrap js-ebsubhead-menu">
+                    <a href="<?php echo url('videolst/index',array('id'=>$vo['id'])); ?>" 
+                        <?php if($cateid == $vo['id']): ?>
+                        class="nav-item current" 
+                        <?php else: ?>
+                        class="nav-item" 
+                        <?php endif; ?>
+                        target="_self"><?php echo $vo['catename']; ?></a>
+                </li>
+                <?php endforeach; endif; else: echo "" ;endif; ?>
+            </ul>
+        </div>
+    </div>
+</div>
+
     <div class="c-top">
         <div class="c-top-main-wrap">
             <div class="c-top-main">
@@ -18,7 +61,7 @@
                     <div class="m-top-left">
                         <div class="s-cover" data-block="tj-cover" monitor-desc="大海报" monitor-shortpv="" id="js-s-cover">
                             <a href="http://v.qq.com/x/page/m00253deqqo.html?ptag=360kan.cartoon.free" class="g-playicon s-cover-img" data-daochu="to=qq" data-num="1">
-                                <img src="{$data['vertical_pic_url']}">
+                                <img src="<?php echo $data['vertical_pic_url']; ?>">
                                 <!-- <i class="ico-pay"></i> -->
                             </a>
                         </div>
@@ -27,8 +70,8 @@
                         <div data-block="tj-info" monitor-desc="详细信息" monitor-shortpv="" class="m-top-info">
                             <div class="m-top-info-title g-clear">
                                 <div class="title-left g-clear">
-                                    <h1>{$data['series_name']}</h1>
-                                    <p class="tag">{$data['episode_updated']}</p>
+                                    <h1><?php echo $data['series_name']; ?></h1>
+                                    <p class="tag"><?php echo $data['episode_updated']; ?></p>
                                     <div id="js-eb-store" class="eb-store">
                                         <a target="_self" href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html####" class="eb-unstore">收藏</a>
                                         <a target="_self" href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html####" class="eb-stored">已收藏</a></div>
@@ -39,33 +82,33 @@
                                 <div class="g-clear item-wrap">
                                     <p class="item">
                                         <span>类型 ：</span>
-                                        {volist name = "data['tag']" id="vo"}
-                                        <span class="cat">{$vo}</span>
-                                        {/volist}
+                                        <?php if(is_array($data['tag']) || $data['tag'] instanceof \think\Collection || $data['tag'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['tag'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                        <span class="cat"><?php echo $vo; ?></span>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </p>
                                         
                                     <p class="item">
-                                        <span>年代 ：</span>{$data.publish_date}</p>
+                                        <span>年代 ：</span><?php echo $data['publish_date']; ?></p>
                                     <p class="item">
                                         <span>地区 ：</span>
-                                        <a class="area first" href="http://www.360kan.com/dongman/list.php?cat=all&amp;year=all&amp;act=all&amp;area=10" target="_blank">{$data['area_name']}</a></p>
+                                        <a class="area first" href="http://www.360kan.com/dongman/list.php?cat=all&amp;year=all&amp;act=all&amp;area=10" target="_blank"><?php echo $data['area_name']; ?></a></p>
                                     <p style="clear:both"></p>
                                     <p class="item item-director">
                                         <span>导演 ：</span>
-                                        {volist name = "data['director_id']" id = "vo"}
-                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E4%B9%90%E5%B9%B3&amp;from=yingshi">{$vo}</a>&nbsp;
-                                        {/volist}
+                                        <?php if(is_array($data['director_id']) || $data['director_id'] instanceof \think\Collection || $data['director_id'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['director_id'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E4%B9%90%E5%B9%B3&amp;from=yingshi"><?php echo $vo; ?></a>&nbsp;
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </p>
                                     <p class="item item-actor">
                                         <span>人物 ：</span>
-                                        {volist name = "data['leading_actor_id']" id = "vo"}
-                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E7%A3%8A&amp;from=yingshi">{$vo}</a>&nbsp;/
-                                        {/volist}
+                                        <?php if(is_array($data['leading_actor_id']) || $data['leading_actor_id'] instanceof \think\Collection || $data['leading_actor_id'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['leading_actor_id'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E7%A3%8A&amp;from=yingshi"><?php echo $vo; ?></a>&nbsp;/
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                     </p>
                                 </div>
                                 <div class="item-desc-wrap g-clear js-open-wrap">
                                     <span>简介 ：</span>
-                                    <p class="item-desc">{$data['description']}
+                                    <p class="item-desc"><?php echo $data['description']; ?>
                                         <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html#" class="js-open btn">展开更多&gt;&gt;</a></p>
                                 </div>
                                 <div class="item-desc-wrap g-clear js-close-wrap" style="display:none;">
@@ -91,11 +134,9 @@
                                         <em></em>全部剧集</h2>
                                     <div class="m-series-content js-tab-content" data-default="t_4_OUPkaZ7kNY7vDj_qq">
                                         <div class="js-series-part m-series-number-container g-clear" data-daochu="to=qq&amp;id=OUPkaZ7kNY7vDj&amp;category=4">
-                                            {volist name = "data['nomal_ids']" id = "vo"}
-                                                {if condition="$vo['F'] neq 0"}
-                                                    <a data-num="1" data-daochu="to=qq" href="https://v.qq.com/x/cover/{$data['pageid']}/{$vo['V']}.html">{$vo['E']}</a>
-                                                {/if}
-                                            {/volist}
+                                            <?php if(is_array($data['nomal_ids']) || $data['nomal_ids'] instanceof \think\Collection || $data['nomal_ids'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['nomal_ids'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['F'] != 0): ?>
+                                                    <a data-num="1" data-daochu="to=qq" href="https://v.qq.com/x/cover/<?php echo $data['pageid']; ?>/<?php echo $vo['V']; ?>.html"><?php echo $vo['E']; ?></a>
+                                                <?php endif; endforeach; endif; else: echo "" ;endif; ?>
                                             <!-- <a data-num="61" data-daochu="to=qq" href="http://v.qq.com/x/page/e0031m3rkbq.html?ptag=360kan.cartoon.pay">61
                                                 <i class="ico-fufei"></i>
                                                 <i class="ico-pay"></i>
@@ -196,7 +237,48 @@
             </div>
         </div>
     </div>
-    {include file="common/foot"}
+    <div class="eb-foot " data-block="tj-foot" monitor-desc="foot" monitor-shortpv="">
+    <div class="eb-foot-wrap g-clear">
+        <div class="eb-foot-left">
+            <p>
+                <img src="./index_files/t01cce0452825687104.png" /></p>
+            <p>Copyright &copy; 360安全网址. All Rights Reserved.</p>
+            <p>
+                <a href="http://www.miibeian.gov.cn/">浙ICP证B2-20090064号</a>&nbsp;&nbsp;
+                <span>信息网络传播视听节目许可证1109357号</span>&nbsp;&nbsp;
+                <span>浙网文[2016]0179-079号</span></p>
+            <p>
+                <a class="ga" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33030202000714">浙公网安备 33030202000714号</a></p>
+        </div>
+        <div class="eb-foot-right g-clear">
+            <dl>
+                <dt>关于</dt>
+                <dd>
+                    <a href="https://www.360kan.com/more/aboutus" target="_blank">关于我们</a></dd>
+                <dd>
+                    <a href="https://www.360kan.com/more/copyright" target="_blank">版权声明</a></dd>
+                <dd>
+                    <a href="https://www.360kan.com/more/protocol" target="_blank">用户协议</a></dd>
+            </dl>
+            <dl>
+                <dt>服务</dt>
+                <dd>
+                    <a class="js-addfavorite" href="https://www.360kan.com/###">加入收藏</a></dd>
+                <dd>
+                    <a href="https://www.360kan.com/more/feedback" target="_blank">意见反馈</a></dd>
+                <dd>
+                    <a href="http://weibo.com/360yingshi" target="_blank">官方微博</a></dd>
+                <dd>
+                    <a href="https://www.360kan.com/more/cooperation">联系方式</a></dd>
+            </dl>
+            <dl>
+                <dt>扫码下载APP</dt>
+                <dd>
+                    <img src="./index_files/t0138a5be69a4b76db3.png" /></dd>
+            </dl>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
