@@ -8,6 +8,7 @@ import sys
 import time
 import pymysql
 import demjson
+import json
 import random
 
 from bs4 import BeautifulSoup
@@ -84,7 +85,7 @@ class PlayList:
                 continue
             cover_info = demjson.decode(cover)
 
-            # print( demjson.encode(cover_info['leading_actor_id']))
+            print(url)
             # return
 
             source = "v.qq.com"
@@ -127,7 +128,7 @@ class PlayList:
             else:
                 connect.commit()
     def setEscape(self,data):
-        return pymysql.escape_string(demjson.encode(data))
+        return json.dumps( data ,ensure_ascii=False)
 
 if __name__ == "__main__":
 

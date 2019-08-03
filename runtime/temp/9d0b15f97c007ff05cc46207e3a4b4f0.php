@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\article\lst.html";i:1564019342;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564048490;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564019341;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\article\lst.html";i:1564019342;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564048490;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564656574;}*/ ?>
 <!DOCTYPE html>
 <html>
     
@@ -138,6 +138,23 @@
                         <a href="<?php echo url('cate/lst'); ?>">
                             <span class="menu-text">
                                 栏目列表                                    </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                    </li>
+                </ul>                            
+            </li> 
+
+            <li>
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text">tag菜单管理</span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="<?php echo url('tags/lst'); ?>">
+                            <span class="menu-text">
+                                tags列表                                    </span>
                             <i class="menu-expand"></i>
                         </a>
                     </li>

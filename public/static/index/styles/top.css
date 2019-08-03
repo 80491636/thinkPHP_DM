@@ -1356,16 +1356,16 @@ a.eb-ucenter-nologin {
 	position: relative;
 	float: left;
 	display: block;
-	width: 164px;
+	width: 350px;
 	height: 100%;
 }
 
 .eb-head-logo img {
 	position: absolute;
-	bottom: 26px;
+	/* bottom: 26px; */
 	left: 0;
-	width: 144px;
-	height: 28px;
+	width: 281px;
+	height: 80px;
 }
 
 .eb-head-nav {

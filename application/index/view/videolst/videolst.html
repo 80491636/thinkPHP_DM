@@ -21,68 +21,44 @@
                 <dl class="s-filter-item js-s-filter">
                     <dt class="type">类型:</dt>
                     <dd class="item g-clear js-filter-content">
-                        <b class="on">全部</b>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=100" target="_self">热血
+                        <!-- <b class="on">全部</b> -->
+                        
+                        {volist name="tags" id="vo"}
+                        {if condition="$keyword eq $vo.tagname"} 
+                        <b class="on">{$vo.tagname}</b>
+                        {else \} 
+                        <a class="js-tongjip" href="{:url('videolst/index',array('keyword'=>$vo['tagname']))}" target="_self">{$vo.tagname}</a>
+                        {/if}
+                        
                             <!-- <i class="s-hot-icon"></i></a> 右上角H小标志-->
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=134" target="_self">科幻</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=102" target="_self">美少女</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=109" target="_self">魔幻</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=135" target="_self">经典</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=136" target="_self">励志</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=111" target="_self">少儿</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=107" target="_self">冒险</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=105" target="_self">搞笑</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=137" target="_self">推理</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=101" target="_self">恋爱</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=138" target="_self">治愈</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=106" target="_self">幻想</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=104" target="_self">校园</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=110" target="_self">动物</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=112" target="_self">机战</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=131" target="_self">亲子</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=139" target="_self">儿歌</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=103" target="_self">运动</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=108" target="_self">悬疑</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=113" target="_self">怪物</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=115" target="_self">战争</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=114" target="_self">益智</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=123" target="_self">青春</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=121" target="_self">童话</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=119" target="_self">竞技</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=126" target="_self">动作</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=116" target="_self">社会</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=117" target="_self">友情</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=127" target="_self">真人版</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=130" target="_self">电影版</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=128" target="_self">OVA版</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=129" target="_self">TV版</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=132" target="_self">新番动画</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?year=all&amp;area=all&amp;cat=133" target="_self">完结动画</a></dd>
+                        {/volist}
+                    </dd>
                     <dd class="act">
-                        <a class="open js-filter-open" href="https://www.360kan.com/#" style="display: inline;">更多</a>
+                        <a class="open js-filter-open" href="#" style="display: inline;">更多</a>
                         <a class="close js-filter-close" href="https://www.360kan.com/#">收起</a></dd>
                 </dl>
                 <dl class="s-filter-item js-s-filter">
                     <dt class="type">年代:</dt>
-                    <dd class="item g-clear js-filter-content">
-                        <b class="on">全部</b>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2019" target="_self">2019</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2018" target="_self">2018</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2017" target="_self">2017</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2016" target="_self">2016</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2015" target="_self">2015</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2014" target="_self">2014</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2013" target="_self">2013</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2012" target="_self">2012</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2011" target="_self">2011</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2010" target="_self">2010</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2009" target="_self">2009</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2008" target="_self">2008</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2007" target="_self">2007</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2006" target="_self">2006</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2005" target="_self">2005</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=2004" target="_self">2004</a>
-                        <a class="js-tongjip" href="https://www.360kan.com/dongman/list?cat=all&amp;area=all&amp;year=other" target="_self">更早</a></dd>
+                    <dd class="item g-clear js-filter-content" id="dd-item">
+
+                        {if condition="$time eq '全部'"}
+                            <b class="on">全部</b>
+                        {else \}
+                            <a class="js-tongjip" href="{:url('videolst/index')}" target="_self">全部</a>
+                        {/if}
+
+                        {for start="0" end="16"}
+                            {if condition="$time eq date('Y') - $i"}
+                                <b class="on">{:date("Y") - $i}</b>
+                                
+                            {else \}
+                                <a class="js-tongjip" href="{:url('videolst/index',array('time'=>date('Y') - $i))}" target="_self">{:date("Y") - $i}</a>
+                            {/if}
+                        
+                        {/for}
+                        
+                            
+                    </dd>
                     <dd class="act">
                         <a class="open js-filter-open" href="https://www.360kan.com/#">更多</a>
                         <a class="close js-filter-close" href="https://www.360kan.com/#">收起</a></dd>
@@ -97,7 +73,7 @@
                         <li class="item">
                             <a class="js-tongjic" href="{:url('playlst/index',array('id'=>$vo['id']))}">
                                 <div class="cover g-playicon">
-                                    <img src="{$vo.pic}">
+                                    <img alt="{$vo.title}" src="{$vo.pic}">
                                     <div class="mask-wrap">
                                         <span class="hint">{$vo.sets}</span></div>
                                 </div>

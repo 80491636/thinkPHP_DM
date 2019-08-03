@@ -275,7 +275,7 @@
 	height: 100%;
 }
 
-.b-topslider .leftbtn,.b-topslider .rightbtn {
+.b-topslider .preImg,.b-topslider .nexImg {
 	position: absolute;
 	top: 50%;
 	z-index: 10;
@@ -287,7 +287,7 @@
 	cursor: pointer;
 }
 
-.b-topslider .leftbtn {
+.b-topslider .preImg {
 	left: 0;
 	background-position: 0 0;
 }
@@ -302,16 +302,16 @@
 	white-space: nowrap;
 }
 
-.b-topslider .rightbtn {
+.b-topslider .nexImg {
 	right: 0;
 	background-position: 0 -160px;
 }
 
-.b-topslider .leftbtn:hover {
+.b-topslider .preImg:hover {
 	background-position: 0 -80px;
 }
 
-.b-topslider .rightbtn:hover {
+.b-topslider .nexImg:hover {
 	background-position: 0 -240px;
 }
 
@@ -2260,4 +2260,29 @@ body {
 	top: 41px;
 	right: 0;
 	z-index: 2;
+}
+
+/* bander圆点 */
+.c-banner .jumpBtn{
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+	text-align: center;
+}
+.c-banner .jumpBtn ul{
+	margin-bottom: 0px;
+	padding: 0px;
+}
+
+.c-banner .jumpBtn ul li{
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	display: inline-block;
+	background-color: white;
+	opacity: 0.9;
+	margin-left: 10px;
+}
+.c-banner .jumpBtn ul li:first-child{
+	margin-left: 0px;
 }

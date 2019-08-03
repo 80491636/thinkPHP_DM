@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\index\index.html";i:1564025088;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564048490;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564019341;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\index\index.html";i:1564655690;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564048490;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564656574;}*/ ?>
 <!DOCTYPE html>
 <html><head>
 	    <meta charset="utf-8">
@@ -150,6 +150,23 @@
 
             <li>
                 <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text">tag菜单管理</span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="<?php echo url('tags/lst'); ?>">
+                            <span class="menu-text">
+                                tags列表                                    </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                    </li>
+                </ul>                            
+            </li> 
+
+            <li>
+                <a href="#" class="menu-dropdown">
                     <i class="menu-icon fa fa-link"></i>
                     <span class="menu-text">友情连接</span>
                     <i class="menu-expand"></i>
@@ -201,8 +218,8 @@
                 <div class="page-body">
                     
 				<div style="text-align:center; line-height:1000%; font-size:24px;">
-                童老师THinkPHP5.0正式版 第一季 博客项目开发<br>
-                <p style="color:#aaa;">ThinkPHP交流群①：484519446【满】 | 群②：480018415【满】  | 群③：198909858</p></div>
+                大树根动漫网<br>
+                <p style="color:#aaa;">欢迎使用大树根动漫网后台管理系统</p></div>
                 </div>
                 
 

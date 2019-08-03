@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\cate\lst.html";i:1564019341;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564019341;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564019341;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:77:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/admin\view\cate\lst.html";i:1564019341;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\top.html";i:1564048490;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\admin\view\common\left.html";i:1564656439;}*/ ?>
 <!DOCTYPE html>
 <html>
     
@@ -47,19 +47,19 @@
                                     <img src="http://127.0.0.1/dm/public/static/admin/images/adam-jansen.jpg">
                                 </div>
                                 <section>
-                                    <h2><span class="profile"><span>admin</span></span></h2>
+                                    <h2><span class="profile"><span><?php echo \think\Request::instance()->session('username'); ?></span></span></h2>
                                 </section>
                             </a>
                             <!--Login Area Dropdown-->
                             <ul class="pull-right dropdown-menu dropdown-arrow dropdown-login-area">
                                 <li class="username"><a>David Stevenson</a></li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/logout.html">
+                                    <a href="<?php echo url('admin/logout'); ?>">
                                             退出登录
                                         </a>
                                 </li>
                                 <li class="dropdown-footer">
-                                    <a href="/admin/user/changePwd.html">
+                                    <a href="<?php echo url('admin/edit'); ?>">
                                             修改密码
                                         </a>
                                 </li>
@@ -138,6 +138,23 @@
                         <a href="<?php echo url('cate/lst'); ?>">
                             <span class="menu-text">
                                 栏目列表                                    </span>
+                            <i class="menu-expand"></i>
+                        </a>
+                    </li>
+                </ul>                            
+            </li> 
+
+            <li>
+                <a href="#" class="menu-dropdown">
+                    <i class="menu-icon fa fa-list"></i>
+                    <span class="menu-text">tag菜单管理</span>
+                    <i class="menu-expand"></i>
+                </a>
+                <ul class="submenu">
+                    <li>
+                        <a href="<?php echo url('cate/lst'); ?>">
+                            <span class="menu-text">
+                                tags列表                                    </span>
                             <i class="menu-expand"></i>
                         </a>
                     </li>

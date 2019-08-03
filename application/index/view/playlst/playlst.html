@@ -8,7 +8,13 @@
     <meta name="referrer" content="always">
     <!--<base target="_blank">-->
     <link href="__PUBLIC__/styles/top.css" type="text/css" rel="stylesheet" />
-    <link href="__PUBLIC__/styles/playlst.css" type="text/css" rel="stylesheet" /><body class="g-wide">
+    <link href="__PUBLIC__/styles/playlst.css" type="text/css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- <script type="text/javascript" src="__PUBLIC__/js/open.js"></script> -->
+    
+    <body class="g-wide">
+
     {include file="common/top"}
     <div class="c-top">
         <div class="c-top-main-wrap">
@@ -53,25 +59,27 @@
                                     <p class="item item-director">
                                         <span>导演 ：</span>
                                         {volist name = "data['director_id']" id = "vo"}
-                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E4%B9%90%E5%B9%B3&amp;from=yingshi">{$vo}</a>&nbsp;
+                                        <a class="name" href="#">{$vo}</a>&nbsp;
                                         {/volist}
                                     </p>
                                     <p class="item item-actor">
                                         <span>人物 ：</span>
                                         {volist name = "data['leading_actor_id']" id = "vo"}
-                                        <a class="name" href="http://so.360kan.com/index.php?kw=%E6%B2%88%E7%A3%8A&amp;from=yingshi">{$vo}</a>&nbsp;/
+                                        <a class="name" href="#">{$vo}</a>&nbsp;/
                                         {/volist}
                                     </p>
                                 </div>
                                 <div class="item-desc-wrap g-clear js-open-wrap">
                                     <span>简介 ：</span>
-                                    <p class="item-desc">{$data['description']}
-                                        <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html#" class="js-open btn">展开更多&gt;&gt;</a></p>
+                                    <p class="item-desc" id="item-open">{$data['description']}
+                                        <a href="#" class="js-open btn">展开更多&gt;&gt;</a>
+                                    </p>
                                 </div>
                                 <div class="item-desc-wrap g-clear js-close-wrap" style="display:none;">
                                     <span>简介 ：</span>
-                                    <p class="item-desc">唐门外门弟子唐三，因偷学内门绝学为唐门所不容，跳崖明志时却发现没有死，反而以另外一个身份来到了另一个世界，一个属于武魂的世界，名叫斗罗大陆。这里没有魔法，没有斗气，没有武术，却有神奇的武魂。这里的每个人，在自己六岁的时候，都会在武魂殿中令武魂觉醒。武魂有动物，有植物，有器物，武魂可以辅助人们的日常生活。而其中一些特别出色的武魂却可以用来修炼并进行战斗，这个职业，是斗罗大陆上最为强大也是最荣耀的职业“魂师”。小小的唐三在圣魂村开始了他的魂师修炼之路，并萌生了振兴唐门的梦想。当唐门暗器来到斗罗大陆，当唐三武魂觉醒，他能否在这片武魂的世界再铸唐门的辉煌？
-                                        <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html#" class="js-close btn">收起&lt;&lt;</a></p>
+                                    <p class="item-desc">{$data['description']}
+                                        <a href="#" class="js-close btn">收起&lt;&lt;</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -93,14 +101,14 @@
                                         <div class="js-series-part m-series-number-container g-clear" data-daochu="to=qq&amp;id=OUPkaZ7kNY7vDj&amp;category=4">
                                             {volist name = "data['nomal_ids']" id = "vo"}
                                                 {if condition="$vo['F'] neq 0"}
-                                                    <a data-num="1" data-daochu="to=qq" href="https://v.qq.com/x/cover/{$data['pageid']}/{$vo['V']}.html">{$vo['E']}</a>
+                                                    <a data-num="1" data-daochu="to=qq" href="{:url('play/index',array('id'=>$data.id,'current_num'=>$vo['E']))}">{$vo['E']}</a>
                                                 {/if}
                                             {/volist}
                                             <!-- <a data-num="61" data-daochu="to=qq" href="http://v.qq.com/x/page/e0031m3rkbq.html?ptag=360kan.cartoon.pay">61
                                                 <i class="ico-fufei"></i>
                                                 <i class="ico-pay"></i>
                                             </a> -->
-                                            <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html###" title="展开" class="expand-series js-expand-series" target="_self" style="width:126px;">展开</a></div>
+                                            <a href="###" title="展开" class="expand-series js-expand-series" target="_self" style="width:126px;">展开</a></div>
                                         <div class="m-series-slice-tabs js-series-slice-tabs g-clear" style="display:none;">
                                             <div class="m-leftarrow-wrap js-m-leftarrow-wrap m-arrow-hide">
                                                 <i class="m-leftarrow js-m-leftarrow"></i>
@@ -110,9 +118,9 @@
                                             </div>
                                             <div class="m-series-inner" style="margin-left: 0;">
                                                 <div style="width:100px;" class="m-series-slice-wrap js-m-series-slice-wrap">
-                                                    <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html###" target="_self" data-seriesindex="series0" class="on">
+                                                    <a href="###" target="_self" data-seriesindex="series0" class="on">
                                                         <span>1-50</span></a>
-                                                    <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html###" target="_self" data-seriesindex="series1" class="">
+                                                    <a href="###" target="_self" data-seriesindex="series1" class="">
                                                         <span>51-61</span></a>
                                                 </div>
                                             </div>
@@ -197,6 +205,68 @@
         </div>
     </div>
     {include file="common/foot"}
+
+    <script>
+        
+            $(function(e) {
+                console.log("aaaa")
+                var t = e("#js-desc-switch"),
+                    n = e(".js-close-wrap", t),
+                    r = e(".js-open-wrap", t),
+                    i = e(".js-close", t),
+                    s = e(".js-open", t);
+                i.on("click", function(e) {
+                    e.preventDefault(), n.hide(), r.show()
+                }), s.on("click", function(e) {
+                    e.preventDefault(), r.hide(), n.show()
+                })
+            });
+            $(function(c) {
+                var n = c("#js-desc-switch"),
+                    e = c(".js-open", n),
+                    i = c(".js-close", n),
+                    o = c(".js-fenji");
+                e.on("click", function() {
+                    o.show()
+                }), i.on("click", function() {
+                    o.hide()
+                })
+            });
+            $(function() {
+                /*处理label显示问题，超出宽度，裁剪，并省略号，其他组件文字显示问题一样*/
+                // $("#listitem")
+                // .clone()    //复制元素
+                // .children() //获取所有子元素
+                // .remove()   //删除所有子元素
+                // .end()  //回到选择的元素
+                // .text();//获取文本值
+                // var text = ''; 
+                // $('#item-open').childNodes.each(function(){ 
+                    // elem = $('#item-open')[0];
+
+                    // for(var i=0;i < elem.childNodes.length;i++){
+                    //     var e = elem.childNodes[i];
+
+                    //     if(e.nodeType===3){
+                    //         console.log(e);
+                    //         if(e.length > 30){
+                    //             e.wholeText(e.wholeText.substring(0,30)+"...");
+                    //         }
+                            
+                    //     }
+
+                    // }      
+                // });
+            //   console.log($('#item-open').text())  
+            //   var labelval=$("#item-open span").text();
+            //     console.log(labelval);
+            //     if(labelval.length>3){
+            //         console.log($("#item-open span").text());
+            //         $("#item-open span").text(labelval.substring(0,3)+"...");
+            //     }
+            });
+    
+            </script>
 </body>
 
 </html>
