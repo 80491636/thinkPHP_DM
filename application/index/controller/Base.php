@@ -5,7 +5,8 @@ class Base extends Controller
 {
     public function _initialize()
     {
-        $cateid = input('id');
+        //cateid 与 cate表中id 对应
+        $cateid = input('cateid');
         $menu = db('cate')->select();
         $this->assign([
             'menu' => $menu,

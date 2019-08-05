@@ -27,7 +27,7 @@
                     <a href="{:url('index/index')}" class="nav-item current" target="_self">首页</a></li>
                 {volist name="menu" id="vo"}
                 <li class="eb-head-nav-wrap js-ebsubhead-menu">
-                    <a href="{:url('videolst/index',array('id'=>$vo.id))}" 
+                    <a href="{:url('videolst/videolst',array('cateid'=>$vo.id))}" 
                         {if condition="$cateid eq $vo.id"}
                         class="nav-item current" 
                         {else /}

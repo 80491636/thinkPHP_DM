@@ -4,7 +4,7 @@ use app\index\controller\Base;
 use app\index\model\Vcate as VcateModel;
 class Play extends Base
 {
-    public function index()
+    public function index($id,$current_num)
     {
         $id = input('id');
         $current_num = input('current_num');

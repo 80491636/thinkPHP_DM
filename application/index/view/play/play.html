@@ -4,13 +4,27 @@
 <!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$playData['series_name'],$playData['current_num']}集 免费在线观看-{$playData['series_name']}-大树根动漫网</title>
-    <meta name="referrer" content="always">
-    <meta name="Keywords" content="{$playData['series_name'],$playData['current_num']}集,免费在线观看{$playData['series_name']},免费在线观看{$playData['series_name'],$playData['current_num']}集" />
-    <meta name="description" content="{$playData['series_name'],$playData['current_num']}集,{$playData['description']}" />
-    <base href="." target="_blank">
-    <!--<base href="http://www.dsgdm.net/">-->
-    <base href="." target="_blank">
+    <title>{$playData['series_name'],'第',$playData['current_num']}集 高清免费在线观看-{$playData['series_name']}-大树根动漫网</title>
+	<meta itemprop="url" content="{:url('play/index',array('id'=>$playData['id'],'current_num'=>$playData['current_num']))}" />
+	<meta itemprop="name" name="title" content="{$playData['series_name'],'第',$playData['current_num']}集 高清免费在线观看-{$playData['series_name']}-大树根动漫网">
+	<meta name="author" content="dsgdm VFE Team" />
+	<meta name="keywords" itemprop="keywords" content="{$playData['series_name']}动画版,{$playData['leading_actor_id']},动漫">
+	<meta name="description" itemprop="description" content="{$playData['series_name'],$playData['current_num']}集,{$playData['description']}">
+	<meta itemprop="image" content="{$playData['horizontal_pic_url']}">
+	<meta itemprop="thumbnailUrl" content="{$playData['horizontal_pic_url']}">
+	<!-- <meta itemprop="uploadDate" content="2018-01-20" /> -->
+	<meta itemprop="duration" content="PT19M16S" />
+	<meta itemprop="interactionCount" content="9190333181" />
+	<meta itemprop="inLanguage" content="" />
+	<!-- <meta itemprop="datePublished" content="2018-01-20" /> -->
+	<meta itemprop="contentLocation" content="{$playData['area_name']}" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:url" property="og:url" content="{:url('play/index',array('id'=>$playData['id'],'current_num'=>$playData['current_num']))}" />
+	<meta name="twitter:title" property="og:title" content="{$playData['series_name'],'第',$playData['current_num']}集 高清免费在线观看-{$playData['series_name']}-大树根动漫网" />
+	<meta name="twitter:description" property="og:description" content="{$playData['series_name'],$playData['current_num']}集,{$playData['description']}" />
+	<meta name="twitter:image" property="og:image" content="{$playData['horizontal_pic_url']}" />
+	<!-- <link rel="canonical" href="{:url('play/index',array('id'=>$playData['id'],'current_num'=>$playData['current_num']))}" /> -->
+
     <link href="__PUBLIC__/styles/top.css" type="text/css" rel="stylesheet" />
     <link href="__PUBLIC__/styles/index.css" type="text/css" rel="stylesheet" />
 </head>
@@ -65,7 +79,7 @@
                                                 <li class="rank-item">
                                                     <div class="normal-type g-clear">
                                                         <span class="num top3">{$k}</span>
-                                                        <a title="{$vo.series_name}" href="{:url('playlst/index',array('id'=>$vo.vcate_id))}" class="name">{$vo.series_name}</a>
+                                                        <a title="{$vo.series_name}" href="{:url('playlst/playlst',array('vcateid'=>$vo.vcate_id))}" class="name">{$vo.series_name}</a>
                                                         <span class="vv">{$vo['view_today_count']/10000|round=###,2} 万</span></div>
                                                 </li>
                                             {/volist}

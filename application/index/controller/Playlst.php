@@ -3,10 +3,8 @@ namespace app\index\controller;
 use app\index\controller\Base;
 class Playlst extends Base
 {
-    public function index()
+    public function playlst($vcateid)
     {
-        $vcateid = input('id');
-        
         $data = db('pcate')->where('vcate_id',$vcateid)->find();
         
         $data['leading_actor_id'] = json_decode($data['leading_actor_id']);
