@@ -1,11 +1,11 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:84:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\playlst\playlst.html";i:1564744829;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1564730944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:84:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\playlst\playlst.html";i:1565002627;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1565004157;}*/ ?>
 <!DOCTYPE html>
-<!-- saved from url=(0045)https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html -->
+<!-- saved from url=(0045)https://www.dsgdm.net/ -->
 <html class="" lang="zh-cn">
 <!--<![endif]-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>斗罗大陆-更新更全更受欢迎的影视网站-在线观看</title>
+    <title><?php echo $data['series_name']; ?>-免费在线观看</title>
     <meta name="referrer" content="always">
     <!--<base target="_blank">-->
     <link href="http://127.0.0.1/dm/public/static/index/styles/top.css" type="text/css" rel="stylesheet" />
@@ -79,8 +79,8 @@
                                     <h1><?php echo $data['series_name']; ?></h1>
                                     <p class="tag"><?php echo $data['episode_updated']; ?></p>
                                     <div id="js-eb-store" class="eb-store">
-                                        <a target="_self" href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html####" class="eb-unstore">收藏</a>
-                                        <a target="_self" href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html####" class="eb-stored">已收藏</a></div>
+                                        <a target="_self" href="http://www.dsgdm.net/####" class="eb-unstore">收藏</a>
+                                        <a target="_self" href="http://www.dsgdm.net/####" class="eb-stored">已收藏</a></div>
                                 </div>
                                 <div class="m-title-right"></div>
                             </div>
@@ -97,7 +97,7 @@
                                         <span>年代 ：</span><?php echo $data['publish_date']; ?></p>
                                     <p class="item">
                                         <span>地区 ：</span>
-                                        <a class="area first" href="http://www.360kan.com/dongman/list.php?cat=all&amp;year=all&amp;act=all&amp;area=10" target="_blank"><?php echo $data['area_name']; ?></a></p>
+                                        <a class="area first" href="http://www.dsgdm.net/####" target="_blank"><?php echo $data['area_name']; ?></a></p>
                                     <p style="clear:both"></p>
                                     <p class="item item-director">
                                         <span>导演 ：</span>
@@ -145,10 +145,6 @@
                                             <?php if(is_array($data['nomal_ids']) || $data['nomal_ids'] instanceof \think\Collection || $data['nomal_ids'] instanceof \think\Paginator): $i = 0; $__LIST__ = $data['nomal_ids'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;if($vo['F'] != 0): ?>
                                                     <a data-num="1" data-daochu="to=qq" href="<?php echo url('play/index',array('id'=>$data['id'],'current_num'=>$vo['E'])); ?>"><?php echo $vo['E']; ?></a>
                                                 <?php endif; endforeach; endif; else: echo "" ;endif; ?>
-                                            <!-- <a data-num="61" data-daochu="to=qq" href="http://v.qq.com/x/page/e0031m3rkbq.html?ptag=360kan.cartoon.pay">61
-                                                <i class="ico-fufei"></i>
-                                                <i class="ico-pay"></i>
-                                            </a> -->
                                             <a href="###" title="展开" class="expand-series js-expand-series" target="_self" style="width:126px;">展开</a></div>
                                         <div class="m-series-slice-tabs js-series-slice-tabs g-clear" style="display:none;">
                                             <div class="m-leftarrow-wrap js-m-leftarrow-wrap m-arrow-hide">
@@ -218,19 +214,9 @@
                                                 <a data-num="48" data-daochu="to=qq" href="http://v.qq.com/x/page/z0030kuc8p9.html?ptag=360kan.cartoon.free">48</a>
                                                 <a data-num="49" data-daochu="to=qq" href="http://v.qq.com/x/page/s0030xyjlgv.html?ptag=360kan.cartoon.free">49</a>
                                                 <a data-num="50" data-daochu="to=qq" href="http://v.qq.com/x/page/d00309oy7b5.html?ptag=360kan.cartoon.free">50</a>
-                                                <a href="https://www.360kan.com/ct/OUPkaZ7kNY7vDj.html####" class="js-slice-series-slide" style="width:126px;">收起</a></div>
+                                                <a href="http://www.dsgdm.net/####" class="js-slice-series-slide" style="width:126px;">收起</a></div>
                                             <div class="series-slice-view g-clear js-series1" style="display:none;">
-                                                <a data-num="51" data-daochu="to=qq" href="http://v.qq.com/x/page/r0030jqn37g.html?ptag=360kan.cartoon.free">51</a>
-                                                <a data-num="52" data-daochu="to=qq" href="http://v.qq.com/x/page/a0030xwuufi.html?ptag=360kan.cartoon.free">52</a>
-                                                <a data-num="53" data-daochu="to=qq" href="http://v.qq.com/x/page/x00300dqata.html?ptag=360kan.cartoon.free">53</a>
-                                                <a data-num="54" data-daochu="to=qq" href="http://v.qq.com/x/page/u0031ivs6kv.html?ptag=360kan.cartoon.free">54</a>
-                                                <a data-num="55" data-daochu="to=qq" href="http://v.qq.com/x/page/o0031vi0i37.html?ptag=360kan.cartoon.free">55</a>
-                                                <a data-num="56" data-daochu="to=qq" href="http://v.qq.com/x/page/i00313ax78g.html?ptag=360kan.cartoon.free">56</a>
-                                                <a data-num="57" data-daochu="to=qq" href="http://v.qq.com/x/page/r0031hnk2re.html?ptag=360kan.cartoon.free">57</a>
-                                                <a data-num="58" data-daochu="to=qq" href="http://v.qq.com/x/page/u0031yygc9w.html?ptag=360kan.cartoon.free">58</a>
-                                                <a data-num="59" data-daochu="to=qq" href="http://v.qq.com/x/page/b00318b53sv.html?ptag=360kan.cartoon.free">59</a>
-                                                <a data-num="60" data-daochu="to=qq" href="http://v.qq.com/x/page/x0031kdbg1u.html?ptag=360kan.cartoon.free">60</a>
-                                                <a data-num="61" data-daochu="to=qq" href="http://v.qq.com/x/page/e0031m3rkbq.html?ptag=360kan.cartoon.pay">61
+                                                <a data-num="61" data-daochu="to=qq" href="#">61
                                                     <i class="ico-fufei"></i>
                                                     <i class="ico-pay"></i>
                                                 </a>
@@ -252,7 +238,7 @@
                 <img alt="大树根动漫网" src="http://127.0.0.1/dm/public/static/index/images/LOGO3.png" /></p>
             <p>Copyright &copy; 大树根动漫网. All Rights Reserved.</p>
             <p>
-                <a href="#">大树根动漫网不参与所有视频的录制、上传。本站所有视频均来自互联网，版权归原创者所有。</a>&nbsp;&nbsp;
+                <a href="http://www.dsgdm.net/#"></a>大树根动漫网不提供任何视听上传及存储服务。本站所有视频均来自互联网，版权归原创者所有。&nbsp;&nbsp;
                 
                 <span> </span>
             
@@ -260,28 +246,29 @@
 
             <p>
             
-                <a class="ga" href="#">不以营利为目的，若侵犯您的权益，请联系我们删除。</a></p>
+                <a class="ga" href="http://www.dsgdm.net/#">不以营利为目的，若侵犯您的权益，请联系我们删除  kfyzjd2008#gmail.com</a></p>
         </div>
         <div class="eb-foot-right g-clear">
             <dl>
                 <dt>关于</dt>
                 <dd>
-                    <a href="#" target="_blank">关于我们</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">关于我们</a></dd>
                 <dd>
-                    <a href="#" target="_blank">版权声明</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">版权声明</a></dd>
                 <dd>
-                    <a href="#" target="_blank">用户协议</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">用户协议</a></dd>
             </dl>
             <dl>
                 <dt>服务</dt>
                 <dd>
-                    <a class="js-addfavorite" href="#">加入收藏</a></dd>
+                    <a class="js-addfavorite" href="http://www.dsgdm.net/"  title="收藏本站到收藏夹">加入收藏</a>
+                </dd>
                 <dd>
-                    <a href="#" target="_blank">意见反馈</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">意见反馈</a></dd>
                 <dd>
-                    <a href="#" target="_blank">官方微博</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">官方微博</a></dd>
                 <dd>
-                    <a href="#">联系方式</a></dd>
+                    <a href="http://www.dsgdm.net/#">联系方式</a></dd>
             </dl>
             <dl>
                 <dt>大树根动漫</dt>
@@ -292,67 +279,6 @@
     </div>
 </div>
 
-    <script>
-        
-            $(function(e) {
-                console.log("aaaa")
-                var t = e("#js-desc-switch"),
-                    n = e(".js-close-wrap", t),
-                    r = e(".js-open-wrap", t),
-                    i = e(".js-close", t),
-                    s = e(".js-open", t);
-                i.on("click", function(e) {
-                    e.preventDefault(), n.hide(), r.show()
-                }), s.on("click", function(e) {
-                    e.preventDefault(), r.hide(), n.show()
-                })
-            });
-            $(function(c) {
-                var n = c("#js-desc-switch"),
-                    e = c(".js-open", n),
-                    i = c(".js-close", n),
-                    o = c(".js-fenji");
-                e.on("click", function() {
-                    o.show()
-                }), i.on("click", function() {
-                    o.hide()
-                })
-            });
-            $(function() {
-                /*处理label显示问题，超出宽度，裁剪，并省略号，其他组件文字显示问题一样*/
-                // $("#listitem")
-                // .clone()    //复制元素
-                // .children() //获取所有子元素
-                // .remove()   //删除所有子元素
-                // .end()  //回到选择的元素
-                // .text();//获取文本值
-                // var text = ''; 
-                // $('#item-open').childNodes.each(function(){ 
-                    // elem = $('#item-open')[0];
-
-                    // for(var i=0;i < elem.childNodes.length;i++){
-                    //     var e = elem.childNodes[i];
-
-                    //     if(e.nodeType===3){
-                    //         console.log(e);
-                    //         if(e.length > 30){
-                    //             e.wholeText(e.wholeText.substring(0,30)+"...");
-                    //         }
-                            
-                    //     }
-
-                    // }      
-                // });
-            //   console.log($('#item-open').text())  
-            //   var labelval=$("#item-open span").text();
-            //     console.log(labelval);
-            //     if(labelval.length>3){
-            //         console.log($("#item-open span").text());
-            //         $("#item-open span").text(labelval.substring(0,3)+"...");
-            //     }
-            });
-    
-            </script>
 </body>
 
 </html>

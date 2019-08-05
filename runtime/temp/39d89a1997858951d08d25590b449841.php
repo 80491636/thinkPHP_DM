@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\index\index.html";i:1564729988;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1564730944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:80:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\index\index.html";i:1565001248;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1565004157;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0023)https://www.360kan.com/ -->
 <html class="" lang="zh-cn">
@@ -158,32 +158,10 @@
                         <div data-block="tj-dsfilter" monitor-desc="动漫筛选" class="p-filter" monitor-shortpv="">
                             <div class="p-mod-title g-clear">
                                 <span class="p-mod-label">动漫筛选</span>
-                                <a class="p-mod-more" href="https://www.360kan.com/dianshi/list.php">更多&gt;</a></div>
+                                
+                            </div>
                             <div class="p-filter-main">
-                                <div class="g-clear list">
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=107">军事</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=104">古装</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=118">谍战</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=109">喜剧</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=101">言情</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=105">伦理</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=111">都市</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=112">历史</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=103">警匪</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=117">神话</a></div>
-                                <div class="g-clear list">
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?area=10">大陆</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?area=11">香港</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?area=12">韩国</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?area=13">美国</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?area=16">台湾</a></div>
-                                <div class="g-clear list">
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E6%9D%A8%E5%B9%82">杨幂</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E7%83%AD%E5%B7%B4">热巴</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E9%83%91%E7%88%BD">郑爽</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E5%BC%A0%E5%98%89%E8%AF%91">张嘉译</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E5%BE%90%E5%B3%A5">徐峥</a>
-                                    <a class="item" href="https://www.360kan.com/dianshi/list.php?cat=all&amp;year=all&amp;area=all&amp;act=%E9%98%AE%E7%BB%8F%E5%A4%A9">阮经天</a></div>
+
                             </div>
                         </div>
                     </div>
@@ -212,7 +190,7 @@
                 <img alt="大树根动漫网" src="http://127.0.0.1/dm/public/static/index/images/LOGO3.png" /></p>
             <p>Copyright &copy; 大树根动漫网. All Rights Reserved.</p>
             <p>
-                <a href="#">大树根动漫网不参与所有视频的录制、上传。本站所有视频均来自互联网，版权归原创者所有。</a>&nbsp;&nbsp;
+                <a href="http://www.dsgdm.net/#"></a>大树根动漫网不提供任何视听上传及存储服务。本站所有视频均来自互联网，版权归原创者所有。&nbsp;&nbsp;
                 
                 <span> </span>
             
@@ -220,28 +198,29 @@
 
             <p>
             
-                <a class="ga" href="#">不以营利为目的，若侵犯您的权益，请联系我们删除。</a></p>
+                <a class="ga" href="http://www.dsgdm.net/#">不以营利为目的，若侵犯您的权益，请联系我们删除  kfyzjd2008#gmail.com</a></p>
         </div>
         <div class="eb-foot-right g-clear">
             <dl>
                 <dt>关于</dt>
                 <dd>
-                    <a href="#" target="_blank">关于我们</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">关于我们</a></dd>
                 <dd>
-                    <a href="#" target="_blank">版权声明</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">版权声明</a></dd>
                 <dd>
-                    <a href="#" target="_blank">用户协议</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">用户协议</a></dd>
             </dl>
             <dl>
                 <dt>服务</dt>
                 <dd>
-                    <a class="js-addfavorite" href="#">加入收藏</a></dd>
+                    <a class="js-addfavorite" href="http://www.dsgdm.net/"  title="收藏本站到收藏夹">加入收藏</a>
+                </dd>
                 <dd>
-                    <a href="#" target="_blank">意见反馈</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">意见反馈</a></dd>
                 <dd>
-                    <a href="#" target="_blank">官方微博</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">官方微博</a></dd>
                 <dd>
-                    <a href="#">联系方式</a></dd>
+                    <a href="http://www.dsgdm.net/#">联系方式</a></dd>
             </dl>
             <dl>
                 <dt>大树根动漫</dt>

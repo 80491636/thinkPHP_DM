@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\videolst\videolst.html";i:1564728771;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1564730944;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"D:\phpStudy\PHPTutorial\WWW\dm\public/../application/index\view\videolst\videolst.html";i:1564728771;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1564663757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1565004157;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0035)https://www.360kan.com/dongman/list -->
 <html class="" lang="zh-cn">
@@ -87,7 +87,7 @@
                             <b class="on">全部</b>
                         <?php else: ?>
                             <a class="js-tongjip" href="<?php echo url('videolst/index'); ?>" target="_self">全部</a>
-                        <?php endif; $__FOR_START_31037__=0;$__FOR_END_31037__=16;for($i=$__FOR_START_31037__;$i < $__FOR_END_31037__;$i+=1){ if($time == date('Y') - $i): ?>
+                        <?php endif; $__FOR_START_11161__=0;$__FOR_END_11161__=16;for($i=$__FOR_START_11161__;$i < $__FOR_END_11161__;$i+=1){ if($time == date('Y') - $i): ?>
                                 <b class="on"><?php echo date("Y") - $i; ?></b>
                                 
                             <?php else: ?>
@@ -137,7 +137,7 @@
                 <img alt="大树根动漫网" src="http://127.0.0.1/dm/public/static/index/images/LOGO3.png" /></p>
             <p>Copyright &copy; 大树根动漫网. All Rights Reserved.</p>
             <p>
-                <a href="#">大树根动漫网不参与所有视频的录制、上传。本站所有视频均来自互联网，版权归原创者所有。</a>&nbsp;&nbsp;
+                <a href="http://www.dsgdm.net/#"></a>大树根动漫网不提供任何视听上传及存储服务。本站所有视频均来自互联网，版权归原创者所有。&nbsp;&nbsp;
                 
                 <span> </span>
             
@@ -145,28 +145,29 @@
 
             <p>
             
-                <a class="ga" href="#">不以营利为目的，若侵犯您的权益，请联系我们删除。</a></p>
+                <a class="ga" href="http://www.dsgdm.net/#">不以营利为目的，若侵犯您的权益，请联系我们删除  kfyzjd2008#gmail.com</a></p>
         </div>
         <div class="eb-foot-right g-clear">
             <dl>
                 <dt>关于</dt>
                 <dd>
-                    <a href="#" target="_blank">关于我们</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">关于我们</a></dd>
                 <dd>
-                    <a href="#" target="_blank">版权声明</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">版权声明</a></dd>
                 <dd>
-                    <a href="#" target="_blank">用户协议</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">用户协议</a></dd>
             </dl>
             <dl>
                 <dt>服务</dt>
                 <dd>
-                    <a class="js-addfavorite" href="#">加入收藏</a></dd>
+                    <a class="js-addfavorite" href="http://www.dsgdm.net/"  title="收藏本站到收藏夹">加入收藏</a>
+                </dd>
                 <dd>
-                    <a href="#" target="_blank">意见反馈</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">意见反馈</a></dd>
                 <dd>
-                    <a href="#" target="_blank">官方微博</a></dd>
+                    <a href="http://www.dsgdm.net/#" target="_blank">官方微博</a></dd>
                 <dd>
-                    <a href="#">联系方式</a></dd>
+                    <a href="http://www.dsgdm.net/#">联系方式</a></dd>
             </dl>
             <dl>
                 <dt>大树根动漫</dt>

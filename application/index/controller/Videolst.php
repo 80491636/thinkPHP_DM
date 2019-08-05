@@ -23,15 +23,23 @@ class Videolst extends Base
         if(!$time){
             $time="全部";
         }else{
-            $map['publish_date'] = ['like','%'.$time.'%'];
-            $data = db('pcate')->alias('a')->join('vcate c','c.id = a.vcate_id')->where($map)->paginate(28);
+            if($time == "全部"){
+                $data = VcateModel::paginate(28);
+            }else{
+                $map['publish_date'] = ['like','%'.$time.'%'];
+                $data = db('pcate')->alias('a')->join('vcate c','c.id = a.vcate_id')->where($map)->paginate(28);
+            }
         }
         //标签查询还是栏目id查询
         if(!$keyword){
             $keyword = "全部";
         }else{
-            $map['tag'] = ['like','%'.$keyword.'%'];
-            $data = db('pcate')->alias('a')->join('vcate c','c.id = a.vcate_id')->where($map)->paginate(28);
+            if($keyword == "全部"){
+                $data = VcateModel::paginate(28);
+            }else{
+                $map['tag'] = ['like','%'.$keyword.'%'];
+                $data = db('pcate')->alias('a')->join('vcate c','c.id = a.vcate_id')->where($map)->paginate(28);
+            }
         }
 
         //查询所有标签
