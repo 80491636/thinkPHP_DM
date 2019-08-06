@@ -48,14 +48,14 @@ class PlayList:
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': UserAgent,
     }
-
+    tuple_list=[]
+    vcate_id = ""
     def __init__(self):
         #   查询数据库 未完结数据
-        sql = "SELECT * FROM tp_vcate where sets_state ='%d'"
-        data = (0)
-        cursor.execute(sql % data)
+        sql = "SELECT * FROM tp_vcate"
+        cursor.execute(sql)
         for row in cursor.fetchall():
-            vcate_id = row[0]
+            self.vcate_id = row[0]
             title = row[1]
             url = row[6]
             #   打开页面
@@ -87,6 +87,7 @@ class PlayList:
                 continue
             try:
                 cover_info = demjson.decode(cover)
+                self.hasKey(cover_info)
             except Exception as e:
                 f=open('json错误.txt','a')
                 f.write('解析JSON错误：' + url + '\n')
@@ -94,61 +95,40 @@ class PlayList:
                 print ("解析JSON错误 "+ url  )
                 continue
             # return
-            source = "v.qq.com"
-            data = (
-                source,
-                vcate_id,
-                cover_info['id'],
-                self.setEscape(cover_info['leading_actor_id']),
-                cover_info['second_title'],
-                cover_info['publish_date'],
-                cover_info['current_num'],
-                self.setEscape(cover_info['type_name']),
-                cover_info['horizontal_pic_url'],
-                cover_info['cartoon_age'],
-                cover_info['area_name'],
-                self.setEscape(cover_info['tag']),
-                cover_info['doulie_tags'],
-                cover_info['series_name'],
-                cover_info['vertical_pic_url'],
-                self.setEscape(cover_info['director_id']),
-                cover_info['description'],
-                cover_info['dialogue'],
-                cover_info['update_notify_desc'],
-                cover_info['episode_updated'],
-                self.setEscape(cover_info['score']),
-                self.setEscape(cover_info['nomal_ids']),
-            )
             #   查询数据库
-            sql = "SELECT * FROM tp_pcate where series_name = '%s'"
-            tdata = (title)
+            sql = "SELECT * FROM tp_pcate where vcate_id = '%s'"
+            tdata = (self.vcate_id)
             cursor.execute(sql % tdata)
-            updateID = cursor.fetchone()[0]
+            updateID = ""
+            print(cursor.rowcount)
             if(cursor.rowcount > 0):
-                print(url,"更新数据")
+                updateID = cursor.fetchone()[0]
+                self.tuple_list.append( updateID )
+                data = tuple(self.tuple_list)
+                print(url,"更新数据",cover_info['series_name'],title)
                 sql = "UPDATE tp_pcate set source = '%s', vcate_id = '%d', pageid = '%s', leading_actor_id = '%s', second_title = '%s', publish_date = '%s', current_num = '%s', type_name = '%s', \
                     horizontal_pic_url = '%s', cartoon_age = '%s', area_name = '%s', tag = '%s',doulie_tags = '%s', series_name = '%s', vertical_pic_url = '%s', director_id = '%s', description = '%s', \
-                    dialogue = '%s', update_notify_desc = '%s', episode_updated = '%s', score = '%s', nomal_ids = '%s' where id='%d'" 
+                    dialogue = '%s', update_notify_desc = '%s', episode_updated = '%s', score = '%s', nomal_ids = '%s',view_today_count = '%s' where id='%d'" 
                 try:
-                    cursor.execute(sql % data,updateID)
+                    cursor.execute(sql % data)
+                    connect.commit()
+                    continue
                 except Exception as e:
                     print("更新数据库失败" ,e)
                     f=open('1.txt','a')
                     f.write(pymysql.escape_string(cover_info['series_name'])+"\n")
                     f.close()
-                    break
-                else:
-                    connect.commit()
-                    break
+                    continue
             else:
+                data = tuple(self.tuple_list)
                 #添加数据
                 sql = "INSERT INTO tp_pcate(source, vcate_id, pageid, leading_actor_id, second_title, publish_date, current_num, type_name, horizontal_pic_url, cartoon_age, area_name, tag,\
-                    doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids) VALUES\
-                        ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
-                print(url,"写入数据")
-                cursor.execute(sql % data)
+                    doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids,view_today_count) VALUES\
+                        ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+                print(url,"写入数据",cover_info['series_name'],title)
                 try:
                     cursor.execute(sql % data)
+                    connect.commit()
                 except Exception as e:
                     print("写入数据库失败" ,e)
                     f=open('1.txt','a')
@@ -156,10 +136,29 @@ class PlayList:
                     f.close()
                     print(data)
                     continue
-                else:
-                    connect.commit()
+                    
     def setEscape(self,data):
+
+        if(type(data) == str or type(data) == int):
+            return data
         return json.dumps( data ,ensure_ascii=False)
+
+    def hasKey(self,dicts):
+        source = "v.qq.com"
+        key = ['id','leading_actor_id','second_title','publish_date','current_num','type_name','horizontal_pic_url','cartoon_age','area_name','tag',\
+            'doulie_tags','series_name','vertical_pic_url','director_id','description','dialogue','update_notify_desc','episode_updated','score','nomal_ids','view_today_count',]
+        self.tuple_list=[source,self.vcate_id]
+        for i in range(0,len(key)):
+            #判断字典中是否有key
+            if(key[i] in dicts.keys()):
+                self.tuple_list.append( self.setEscape( dicts[key[i]] ) )
+            else:
+                self.tuple_list.append( None )
+
+
+
+
+
 
 if __name__ == "__main__":
 

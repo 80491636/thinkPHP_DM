@@ -55,7 +55,6 @@ class Main:
             listpage += 1
             #   打开页面
             url = "https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&iarea=" + str(iarea) + "&listpage=" + str(listpage) + "&offset=" + str(offset) + "&pagesize=30&sort=18"
-
             try:
                 r = requests.get(url,headers = self.header)
                 print("链接状态：",r.status_code," 地址：",url)
@@ -102,16 +101,19 @@ class Main:
                     href = figure_detail.find('a')['href']
                 except Exception as e:
                     href = ''
+                title = pymysql.escape_string(str(title))
                 print("缩略图地址：",pic," 电影名称：",title," 别名 ",second_title," 播放地址：",href," 集数：",sets)
                 #查询重复
-                repeat = False
-                sql = "SELECT id,title,sets_state FROM tp_vcate "
-                cursor.execute(sql)
-                for row in cursor.fetchall():
-                    #   有信息，但未完结
-                    if(row[1] == title and row[2] == 1):
-                        # 更新数据
-                        print("更新数据")
+                sql = "SELECT id,title,sets_state FROM tp_vcate where title='%s'"
+                tdata = (title)
+                cursor.execute(sql % tdata)
+                updateID = ""
+                print("查询到" + str(cursor.rowcount) + "条与标题 " + title +"  一致的数据")
+                if(cursor.rowcount > 0):
+                    fetch = cursor.fetchone()
+                    updateID = fetch[0]
+                    updatestate = fetch[2]
+                    if(updatestate == 0):
                         try:
                             sql = "UPDATE tp_vcate set title = '%s', second_title = '%s', pic = '%s', sets = '%s', sets_state = '%d', url = '%s',cateid = '%d' where id = '%d'"
                             sets_state = 0
@@ -120,17 +122,14 @@ class Main:
                                 sets_state = 1
                             else:
                                 sets_state = 0
-                            data = (title, second_title, pic, sets, sets_state, href, iarea + 1,row[0])
+                            data = (title, second_title, pic, sets, sets_state, href, iarea + 1,updateID)
                             cursor.execute(sql % data)
                             connect.commit()
                         except Exception as e:
                             print(e)
                             continue     
-                        break
-                    elif(row[0] == title and row[1] == 1):
-                        break
-                    repeat = True
-                if(repeat == False):
+                        continue
+                else:
                     # 插入数据
                     try:
                         sql = "INSERT INTO tp_vcate (title, second_title, pic, sets, sets_state, url ,cateid) \
@@ -147,8 +146,6 @@ class Main:
                     except Exception as e:
                         print(e)
                         continue     
-                    break
-
 
 
 if __name__ == "__main__":
