@@ -46,19 +46,22 @@ class Main:
         'Upgrade-Insecure-Requests': '1',
         'User-Agent': UserAgent,
     }
-
     def getCateID(self):
         for i in range(1,5):
             self.getList(i)
-
     def getList(self,iarea):
         listpage = 0
         for offset in range(0,10000,30):
             listpage += 1
-            url = "https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&iarea=" + str(iarea) + "&listpage=" + str(listpage) + "&offset=" + str(offset) + "&pagesize=30&sort=18"
             #   打开页面
-            r = requests.get(url,headers = self.header)
-            print("链接状态：",r.status_code," 地址：",url)
+            url = "https://v.qq.com/x/bu/pagesheet/list?_all=1&append=1&channel=cartoon&iarea=" + str(iarea) + "&listpage=" + str(listpage) + "&offset=" + str(offset) + "&pagesize=30&sort=18"
+
+            try:
+                r = requests.get(url,headers = self.header)
+                print("链接状态：",r.status_code," 地址：",url)
+            except Exception as e:
+                print("打开链接错误：",e)
+                continue           
             #   分析页面内容
             soup = BeautifulSoup(r.content,"html.parser")
             if(soup.find_all('div', {'class': 'list_item'}) == []):
@@ -67,7 +70,11 @@ class Main:
             #   获取列表页面
             for items in soup.find_all('div', {'class': 'list_item'}):
                 #   缩略图
-                pic = items.find('img')['src']
+                try:
+                    pic = items.find('img')['src']
+                except Exception as e:
+                    print("读取缩略图遇到错误",e)
+                    continue
                 if(pic == ''):
                     print("没有缩略图 直接跳过")
                     continue
@@ -81,22 +88,48 @@ class Main:
                     sets = items.find('div',{'class':'figure_caption'}).text
                 except Exception as e:
                     sets = ''
-                figure_detail = items.find('div',{'class':'figure_detail'})
+                try:
+                    figure_detail = items.find('div',{'class':'figure_detail'})
+                except Exception as e:
+                    figure_detail = ''
                 #   电影名
-                title = figure_detail.find('a').text
+                try:
+                    title = figure_detail.find('a').text
+                except Exception as e:
+                    title = ''
                 #   播放页面地址
-                href = figure_detail.find('a')['href']
-
+                try:
+                    href = figure_detail.find('a')['href']
+                except Exception as e:
+                    href = ''
                 print("缩略图地址：",pic," 电影名称：",title," 别名 ",second_title," 播放地址：",href," 集数：",sets)
                 #查询重复
                 repeat = False
-                sql = "SELECT title FROM tp_vcate "
+                sql = "SELECT id,title,sets_state FROM tp_vcate "
                 cursor.execute(sql)
                 for row in cursor.fetchall():
-                    if(row[0] == title):
-                        repeat = True
+                    #   有信息，但未完结
+                    if(row[1] == title and row[2] == 1):
+                        # 更新数据
+                        print("更新数据")
+                        try:
+                            sql = "UPDATE tp_vcate set title = '%s', second_title = '%s', pic = '%s', sets = '%s', sets_state = '%d', url = '%s',cateid = '%d' where id = '%d'"
+                            sets_state = 0
+                            matchObj = re.match( r'全(.*)', sets, re.M|re.I)
+                            if matchObj:
+                                sets_state = 1
+                            else:
+                                sets_state = 0
+                            data = (title, second_title, pic, sets, sets_state, href, iarea + 1,row[0])
+                            cursor.execute(sql % data)
+                            connect.commit()
+                        except Exception as e:
+                            print(e)
+                            continue     
                         break
-
+                    elif(row[0] == title and row[1] == 1):
+                        break
+                    repeat = True
                 if(repeat == False):
                     # 插入数据
                     try:
@@ -113,7 +146,10 @@ class Main:
                         connect.commit()
                     except Exception as e:
                         print(e)
-                        continue                
+                        continue     
+                    break
+
+
 
 if __name__ == "__main__":
 

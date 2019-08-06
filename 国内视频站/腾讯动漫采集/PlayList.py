@@ -50,11 +50,13 @@ class PlayList:
     }
 
     def __init__(self):
-        #   查询数据库
-        sql = "SELECT * FROM tp_vcate "
-        cursor.execute(sql)
+        #   查询数据库 未完结数据
+        sql = "SELECT * FROM tp_vcate where sets_state ='%d'"
+        data = (0)
+        cursor.execute(sql % data)
         for row in cursor.fetchall():
             vcate_id = row[0]
+            title = row[1]
             url = row[6]
             #   打开页面
             try:
@@ -83,15 +85,16 @@ class PlayList:
                 f.close()
                 print ("没有找到 cover  JSON")
                 continue
-            cover_info = demjson.decode(cover)
-
-            print(url)
+            try:
+                cover_info = demjson.decode(cover)
+            except Exception as e:
+                f=open('json错误.txt','a')
+                f.write('解析JSON错误：' + url + '\n')
+                f.close()
+                print ("解析JSON错误 "+ url  )
+                continue
             # return
-
             source = "v.qq.com"
-            sql = "INSERT INTO tp_pcate(source, vcate_id, pageid, leading_actor_id, second_title, publish_date, current_num, type_name, horizontal_pic_url, cartoon_age, area_name, tag,\
-                doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids) VALUES\
-                    ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
             data = (
                 source,
                 vcate_id,
@@ -116,17 +119,45 @@ class PlayList:
                 self.setEscape(cover_info['score']),
                 self.setEscape(cover_info['nomal_ids']),
             )
-            try:
-                cursor.execute(sql % data)
-            except Exception as e:
-                print(e)
-                f=open('1.txt','a')
-                f.write(pymysql.escape_string(cover_info['series_name'])+"\n")
-                f.close()
-                print(data)
-                continue
+            #   查询数据库
+            sql = "SELECT * FROM tp_pcate where series_name = '%s'"
+            tdata = (title)
+            cursor.execute(sql % tdata)
+            updateID = cursor.fetchone()[0]
+            if(cursor.rowcount > 0):
+                print(url,"更新数据")
+                sql = "UPDATE tp_pcate set source = '%s', vcate_id = '%d', pageid = '%s', leading_actor_id = '%s', second_title = '%s', publish_date = '%s', current_num = '%s', type_name = '%s', \
+                    horizontal_pic_url = '%s', cartoon_age = '%s', area_name = '%s', tag = '%s',doulie_tags = '%s', series_name = '%s', vertical_pic_url = '%s', director_id = '%s', description = '%s', \
+                    dialogue = '%s', update_notify_desc = '%s', episode_updated = '%s', score = '%s', nomal_ids = '%s' where id='%d'" 
+                try:
+                    cursor.execute(sql % data,updateID)
+                except Exception as e:
+                    print("更新数据库失败" ,e)
+                    f=open('1.txt','a')
+                    f.write(pymysql.escape_string(cover_info['series_name'])+"\n")
+                    f.close()
+                    break
+                else:
+                    connect.commit()
+                    break
             else:
-                connect.commit()
+                #添加数据
+                sql = "INSERT INTO tp_pcate(source, vcate_id, pageid, leading_actor_id, second_title, publish_date, current_num, type_name, horizontal_pic_url, cartoon_age, area_name, tag,\
+                    doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids) VALUES\
+                        ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+                print(url,"写入数据")
+                cursor.execute(sql % data)
+                try:
+                    cursor.execute(sql % data)
+                except Exception as e:
+                    print("写入数据库失败" ,e)
+                    f=open('1.txt','a')
+                    f.write(pymysql.escape_string(cover_info['series_name'])+"\n")
+                    f.close()
+                    print(data)
+                    continue
+                else:
+                    connect.commit()
     def setEscape(self,data):
         return json.dumps( data ,ensure_ascii=False)
 
