@@ -6,10 +6,8 @@ class Play extends Base
 {
     public function index($id,$current_num)
     {
-        $id = input('id');
-        $current_num = input('current_num');
         $playData = db('pcate')->where('id',$id)->find();
-        
+
         $playData['current_num'] = $current_num;
         $playData['nomal_id'] = json_decode($playData['nomal_ids'],true);
 

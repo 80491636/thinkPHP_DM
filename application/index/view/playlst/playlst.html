@@ -23,7 +23,7 @@
                 <div class="m-top m-top-dongman g-clear">
                     <div class="m-top-left">
                         <div class="s-cover" data-block="tj-cover" monitor-desc="大海报" monitor-shortpv="" id="js-s-cover">
-                            <a href="http://v.qq.com/x/page/m00253deqqo.html?ptag=360kan.cartoon.free" class="g-playicon s-cover-img" data-daochu="to=qq" data-num="1">
+                            <a href="{:url('playlst/playlst',array('vcateid'=>$data['vcate_id']))}" class="g-playicon s-cover-img" data-daochu="to=qq" data-num="1">
                                 <img src="{$data['vertical_pic_url']}">
                                 <!-- <i class="ico-pay"></i> -->
                             </a>
@@ -99,9 +99,9 @@
                                         <em></em>全部剧集</h2>
                                     <div class="m-series-content js-tab-content" data-default="t_4_OUPkaZ7kNY7vDj_qq">
                                         <div class="js-series-part m-series-number-container g-clear" data-daochu="to=qq&amp;id=OUPkaZ7kNY7vDj&amp;category=4">
-                                            {volist name = "data['nomal_ids']" id = "vo"}
+                                            {volist name = "data['nomal_ids']" id = "vo" key = "k"}
                                                 {if condition="$vo['F'] neq 0"}
-                                                    <a data-num="1" data-daochu="to=qq" href="{:url('play/index',array('id'=>$data.id,'current_num'=>$vo['E']))}">{$vo['E']}</a>
+                                                    <a data-num="1" data-daochu="to=qq" href="{:url('play/index',array('id'=>$data.id,'current_num'=>count($data['nomal_ids'])-$k))}">{$vo['E']}</a>
                                                 {/if}
                                             {/volist}
                                             <a href="###" title="展开" class="expand-series js-expand-series" target="_self" style="width:126px;">展开</a></div>
