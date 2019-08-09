@@ -8,7 +8,6 @@ class Index extends Base
     {
         // 右侧热度排行榜
         $count = db('pcate')->orderRaw('view_today_count DESC')->limit(9)->select();
-        dump($count);die;
         //模糊查找前20 在更新中的动漫
         $where['episode_updated'] = ['like','%'.'更新'.'%'];
         $data = db('pcate')->where($where)->limit(20)->select();

@@ -6,9 +6,9 @@
             <a href="#" class="eb-head-ad" style="background-image:url()"></a>
         </div> -->
         <div class="eb-head-s">
-            <form class="js-eb-search eb-search eb-search-xklong" target="_top" method="GET" action="" id="search-form">
+            <form class="js-eb-search eb-search eb-search-xklong" autocomplete="off" target="_blank" method="GET" action="{:url('search/search')}" id="search-form">
                 <div class="js-eb-suggest eb-suggest  eb-suggest-xklong g-clear" id="js-eb-suggest">
-                    <input class="eb-suggest-query js-query" autocomplete="off" value="" id="kw" />
+                    <input type="text" placeholder="请输入关键词" class="eb-suggest-query js-query" autocomplete="off" value="" id="keywords" name="keywords"/>
                     <div class="eb-suggest-wrap js-wrap" style="display:none">
                         <iframe frameborder="0"></iframe>
                         <ul class="js-list eb-suggest-ul"></ul>
@@ -40,3 +40,10 @@
         </div>
     </div>
 </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7153425338723684",
+    enable_page_level_ads: true
+  });
+</script>

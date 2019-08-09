@@ -18,7 +18,7 @@ connect = pymysql.Connect(
     host = 'localhost',
     port = 3306,
     user = 'root',
-    passwd = '123456',
+    passwd = 'a1513784',
     db = 'blog',
     charset = 'utf8'
 )
@@ -108,7 +108,7 @@ class PlayList:
                 print(url,"更新数据",cover_info['series_name'],title)
                 sql = "UPDATE tp_pcate set source = '%s', vcate_id = '%d', pageid = '%s', leading_actor_id = '%s', second_title = '%s', publish_date = '%s', current_num = '%s', type_name = '%s', \
                     horizontal_pic_url = '%s', cartoon_age = '%s', area_name = '%s', tag = '%s',doulie_tags = '%s', series_name = '%s', vertical_pic_url = '%s', director_id = '%s', description = '%s', \
-                    dialogue = '%s', update_notify_desc = '%s', episode_updated = '%s', score = '%s', nomal_ids = '%s',view_today_count = '%s' where id='%d'" 
+                    dialogue = '%s', update_notify_desc = '%s', episode_updated = '%s', score = '%s', nomal_ids = '%s',view_today_count = '%d' where id='%d'" 
                 try:
                     cursor.execute(sql % data)
                     connect.commit()
@@ -124,7 +124,7 @@ class PlayList:
                 #添加数据
                 sql = "INSERT INTO tp_pcate(source, vcate_id, pageid, leading_actor_id, second_title, publish_date, current_num, type_name, horizontal_pic_url, cartoon_age, area_name, tag,\
                     doulie_tags, series_name, vertical_pic_url, director_id, description, dialogue, update_notify_desc, episode_updated, score, nomal_ids,view_today_count) VALUES\
-                        ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s')"
+                        ('%s','%d', '%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%d')"
                 print(url,"写入数据",cover_info['series_name'],title)
                 try:
                     cursor.execute(sql % data)
@@ -146,7 +146,7 @@ class PlayList:
     def hasKey(self,dicts):
         source = "v.qq.com"
         key = ['id','leading_actor_id','second_title','publish_date','current_num','type_name','horizontal_pic_url','cartoon_age','area_name','tag',\
-            'doulie_tags','series_name','vertical_pic_url','director_id','description','dialogue','update_notify_desc','episode_updated','score','nomal_ids','view_today_count',]
+            'doulie_tags','title','vertical_pic_url','director_id','description','dialogue','update_notify_desc','episode_updated','score','nomal_ids','view_today_count',]
         self.tuple_list=[source,self.vcate_id]
         for i in range(0,len(key)):
             #判断字典中是否有key

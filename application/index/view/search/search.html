@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- saved from url=(0035)https://www.dsgdm.net/dongman/list -->
+<html class="" lang="zh-cn">
+<!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{$keywords}搜索结果-大树根动漫-免费在线观看</title>
+    <meta name="referrer" content="always">
+    <!--<base target="_blank">-->
+    <base href="." target="_blank">
+    <!--<base href="https://www.dsgdm.net">-->
+    <base href="." target="_blank">
+    <link href="__PUBLIC__/styles/top.css" type="text/css" rel="stylesheet" />
+    <link href="__PUBLIC__/styles/videolst.css" type="text/css" rel="stylesheet" />
+</head>
+<body class="g-wide">
+    {include file="common/top"}
+    <div class="s-common-top g-wrap js-common-top s-dongman-top" data-channel="dongman">
+
+        <div data-block="tj-list" monitor-desc="列表" monitor-shortpv="">
+            <div class="s-tab">
+                <div class="s-tab-main">
+                    <ul class="list g-clear">
+                        {volist name="searchres" id="vo"}
+                        <li class="item">
+                            <a class="js-tongjic" href="{:url('playlst/playlst',array('vcateid'=>$vo['id']))}">
+                                <div class="cover g-playicon">
+                                    <img alt="{$vo.title}" src="{$vo.pic}">
+                                    <div class="mask-wrap">
+                                        <span class="hint">{$vo.sets}</span></div>
+                                </div>
+                                <div class="detail">
+                                    <p class="title g-clear">
+                                        <span class="s1" title="{$vo.title}">{$vo.title}</span></p>
+                                </div>
+                            </a>
+                        </li>
+                        {/volist}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div monitor-desc="分页" id="js-ew-page" data-block="js-ew-page" class="ew-page">
+            {$searchres->render()}
+        </div>
+    </div>
+
+    {include file='common/foot'}
+
+</body>
+
+</html>

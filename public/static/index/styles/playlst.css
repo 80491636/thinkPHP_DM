@@ -420,6 +420,7 @@ h1 {
 	margin-right: 0
 }
 
+
 .m-top-info-detail .item-wrap {
 	width: 100%;
 	overflow: hidden
@@ -1347,7 +1348,7 @@ h1 {
 .m-series-number-container {
 	position: relative;
 	filter: inherit;
-	margin-left: -15px
+	margin-left: -15px;
 }
 
 .m-series-number-container a {
@@ -1365,7 +1366,7 @@ h1 {
 	color: #666;
 	background: #EDEDED;
 	border: 1px solid #EAEAEA;
-	border-radius: 2px
+	border-radius: 2px;
 }
 
 .m-series-number-container .watched {
@@ -2886,3 +2887,8 @@ h1 {
 	float: right;
 	cursor: pointer
 }
+
+.mark_v{top:0;right:0}
+.mark_v img{vertical-align:top}
+.mark_v_pic{position:absolute;top:0;right:0;height:16px}
+.mark_v{top:-3px;right:-3px}

@@ -100,8 +100,14 @@
                                     <div class="m-series-content js-tab-content" data-default="t_4_OUPkaZ7kNY7vDj_qq">
                                         <div class="js-series-part m-series-number-container g-clear" data-daochu="to=qq&amp;id=OUPkaZ7kNY7vDj&amp;category=4">
                                             {volist name = "data['nomal_ids']" id = "vo" key = "k"}
-                                                {if condition="$vo['F'] neq 0"}
+                                                {if condition="($vo['F'] eq 2) OR ($vo['F'] eq 7) "}
                                                     <a data-num="1" data-daochu="to=qq" href="{:url('play/index',array('id'=>$data.id,'current_num'=>count($data['nomal_ids'])-$k))}">{$vo['E']}</a>
+                                                {/if}
+                                                {if condition="$vo['F'] eq 4"}
+                                                <a data-num="1" data-daochu="to=qq" href="{:url('play/index',array('id'=>$data.id,'current_num'=>count($data['nomal_ids'])-$k))}">
+                                                    {$vo['E']}
+                                                    <i class="mark_v"><img src="https://puui.qpic.cn/vupload/0/20190716_sub_number_yu.png/0" srcset="https://puui.qpic.cn/vupload/0/20190716_sub_number_yu@2x.png/0 2x"></i>
+                                                </a>
                                                 {/if}
                                             {/volist}
                                             <a href="###" title="展开" class="expand-series js-expand-series" target="_self" style="width:126px;">展开</a></div>

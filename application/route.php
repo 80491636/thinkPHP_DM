@@ -31,5 +31,8 @@ return [
         ':id'   => ['play/index', ['method' => 'get|post'], ['id' => '\d+']],
         ':current_num'   => ['play/index', ['method' => 'get|post'], ['current_num' => '\d+']],
     ],
+    '[search]'     => [
+        ':keywords'   => ['search/search', ['method' => 'GET|POST'], ['keywords' => '\d+']],
+    ],
     'index' => 'index/index',
 ];

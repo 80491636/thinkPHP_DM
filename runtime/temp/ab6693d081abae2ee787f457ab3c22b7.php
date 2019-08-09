@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpStudy\PHPTutorial\WWW\dm/application/index\view\index\index.html";i:1565055757;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1565055757;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1565004157;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:70:"D:\phpStudy\PHPTutorial\WWW\dm/application/index\view\index\index.html";i:1565236910;s:69:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\top.html";i:1565346772;s:70:"D:\phpStudy\PHPTutorial\WWW\dm\application\index\view\common\foot.html";i:1565228807;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0023)https://www.360kan.com/ -->
 <html class="" lang="zh-cn">
@@ -14,8 +14,8 @@
         if (ua.indexOf('mobile') > 0 && ua.indexOf('ipad') < 0) {
             window.location.href = 'http://m.360kan.com/';
         }</script> -->
-    <link href="http://127.0.0.1/dm/public/static/index/styles/index.css" type="text/css" rel="stylesheet" />
-    <link href="http://127.0.0.1/dm/public/static/index/styles/top.css" type="text/css" rel="stylesheet" />
+    <link href="http://localhost/dm/public/static/index/styles/index.css" type="text/css" rel="stylesheet" />
+    <link href="http://localhost/dm/public/static/index/styles/top.css" type="text/css" rel="stylesheet" />
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     
 <body class="g-wide">
@@ -23,14 +23,14 @@
     <div class="eb-head" data-block="tj-head" monitor-desc="head" monitor-shortpv="">
     <div class="eb-head-top eb-head-width g-clear">
         <a href="#" class="eb-head-logo" target="_self">
-            <img alt="大树根动漫网" src="http://127.0.0.1/dm/public/static/index/images/LOGO.png" /></a>
+            <img alt="大树根动漫网" src="http://localhost/dm/public/static/index/images/LOGO.png" /></a>
         <!-- <div class="eb-head-ad-wrap">
             <a href="#" class="eb-head-ad" style="background-image:url()"></a>
         </div> -->
         <div class="eb-head-s">
-            <form class="js-eb-search eb-search eb-search-xklong" target="_top" method="GET" action="" id="search-form">
+            <form class="js-eb-search eb-search eb-search-xklong" autocomplete="off" target="_blank" method="GET" action="<?php echo url('search/search'); ?>" id="search-form">
                 <div class="js-eb-suggest eb-suggest  eb-suggest-xklong g-clear" id="js-eb-suggest">
-                    <input class="eb-suggest-query js-query" autocomplete="off" value="" id="kw" />
+                    <input type="text" placeholder="请输入关键词" class="eb-suggest-query js-query" autocomplete="off" value="" id="keywords" name="keywords"/>
                     <div class="eb-suggest-wrap js-wrap" style="display:none">
                         <iframe frameborder="0"></iframe>
                         <ul class="js-list eb-suggest-ul"></ul>
@@ -62,7 +62,13 @@
         </div>
     </div>
 </div>
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+  (adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-7153425338723684",
+    enable_page_level_ads: true
+  });
+</script>
 
     <div class="b-topslider js-toplslider" id="tj-topslider" data-block="tj-轮播图" monitor-desc="轮播图" monitor-shortpv="">
         <div class="group-wrap">
@@ -147,7 +153,7 @@
                                             <div class="normal-type g-clear">
                                                 <span class="num top3"><?php echo $k; ?></span>
                                                 <a title="<?php echo $vo['series_name']; ?>" href="<?php echo url('playlst/playlst',array('vcateid'=>$vo['vcate_id'])); ?>" class="name"><?php echo $vo['series_name']; ?></a>
-                                                <span class="vv"><?php echo round($vo['view_today_count']/10000,2); ?> 万</span></div>
+                                                <span class="vv"><?php echo round($vo['view_today_count']/10000,1); ?>万</span></div>
                                         </li>
                                     <?php endforeach; endif; else: echo "" ;endif; ?>
 
@@ -187,7 +193,7 @@
     <div class="eb-foot-wrap g-clear">
         <div class="eb-foot-left">
             <p>
-                <img alt="大树根动漫网" src="http://127.0.0.1/dm/public/static/index/images/LOGO3.png" /></p>
+                <img alt="大树根动漫网" src="http://localhost/dm/public/static/index/images/LOGO3.png" /></p>
             <p>Copyright &copy; 大树根动漫网. All Rights Reserved.</p>
             <p>
                 <a href="http://www.dsgdm.net/#"></a>大树根动漫网不提供任何视听上传及存储服务。本站所有视频均来自互联网，版权归原创者所有。&nbsp;&nbsp;
@@ -225,12 +231,21 @@
             <dl>
                 <dt>大树根动漫</dt>
                 <dd>
-                    <img alt="大树根动漫" src="http://127.0.0.1/dm/public/static/index/images/LOGO2.png" /></dd>
+                    <img alt="大树根动漫" src="http://localhost/dm/public/static/index/images/LOGO2.png" /></dd>
             </dl>
         </div>
     </div>
 </div>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-145325657-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-145325657-1');
+</script>
 
 </body>
-<script src="http://127.0.0.1/dm/public/static/index/js/lunbo.js"></script>
+<script src="http://localhost/dm/public/static/index/js/lunbo.js"></script>
 </html>

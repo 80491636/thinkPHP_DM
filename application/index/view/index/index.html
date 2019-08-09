@@ -108,7 +108,7 @@
                                             <div class="normal-type g-clear">
                                                 <span class="num top3">{$k}</span>
                                                 <a title="{$vo.series_name}" href="{:url('playlst/playlst',array('vcateid'=>$vo.vcate_id))}" class="name">{$vo.series_name}</a>
-                                                <span class="vv">{$vo['view_today_count']/10000|round=###,2} 万</span></div>
+                                                <span class="vv">{$vo['view_today_count']/10000|round=###,1}万</span></div>
                                         </li>
                                     {/volist}
 
